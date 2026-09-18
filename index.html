@@ -26,24 +26,21 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(79, 172, 254, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.12) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(79, 172, 254, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.10) 0%, transparent 40%);
             background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
             padding: 40px 15px;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .container {
-            max-width: 780px;
+            max-width: 720px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
 
-        /* 音乐播放控制 */
+        /* 浮动背景音乐 */
         .music-player {
             position: fixed;
             bottom: 25px;
@@ -57,55 +54,44 @@
             gap: 10px;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
             cursor: pointer;
-            z-index: 1000;
+            z-index: 99;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
-        .music-player:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
-        }
-        .disc-icon {
-            color: var(--accent-glow);
-            animation: spin 3s linear infinite;
-        }
-        .disc-paused {
-            animation-play-state: paused;
-        }
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
+        .music-player:hover { transform: scale(1.05); }
+        .disc-icon { color: var(--accent-glow); animation: spin 3s linear infinite; }
+        .disc-paused { animation-play-state: paused; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* 个人基本卡片 */
-        .profile-card {
+        /* 通用卡片 */
+        .profile-card, .card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 35px 25px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            margin-bottom: 25px;
-            animation: fadeInDown 0.8s ease-out;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .avatar-box {
-            width: 85px;
-            height: 85px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-glow));
             margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 34px;
             font-weight: bold;
             color: #0d0f12;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 26px;
+            text-align: center;
             background: linear-gradient(to right, #fff, var(--accent-glow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -118,129 +104,136 @@
             border-left: 3px solid var(--accent-glow);
             padding: 12px 16px;
             border-radius: 0 8px 8px 0;
-            text-align: left;
             margin: 18px 0;
         }
 
-        /* 球星滑入区域 */
-        .stars-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .star-mini-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 12px 10px;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: slideIn 0.8s ease-out forwards;
-        }
-
-        .star-mini-card:nth-child(1) { animation-delay: 0.1s; }
-        .star-mini-card:nth-child(2) { animation-delay: 0.3s; }
-        .star-mini-card:nth-child(3) { animation-delay: 0.5s; }
-        .star-mini-card:nth-child(4) { animation-delay: 0.7s; }
-
-        .star-mini-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-glow);
-            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.2);
-        }
-
-        .star-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-blue);
-            margin-bottom: 8px;
-        }
-
-        .star-name {
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        /* 通用卡片 */
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 22px;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
         .card-title {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--accent-glow);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
+        /* 标签与按钮 */
+        .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 13px;
+            transition: all 0.3s;
+        }
+        .tag-clickable {
+            cursor: pointer;
+        }
+        .tag-clickable:hover {
+            border-color: var(--accent-glow);
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-glow);
         }
 
+        /* 球星网格 */
+        .stars-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        @media (max-width: 500px) { .stars-container { grid-template-columns: repeat(2, 1fr); } }
+
+        .star-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .star-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.2);
+        }
+        .star-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-glow);
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-glow);
+        }
+
+        /* 音乐列表 */
         .media-list { list-style: none; }
         .media-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 14px;
         }
         .media-item:last-child { border-bottom: none; }
 
-        .badge {
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-sub);
+        .listen-btn {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-glow));
+            color: #0b0d11;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s;
         }
-        .badge.top { background: linear-gradient(135deg, #ff416c, #ff4b2b); color: #fff; font-weight: bold; }
+        .listen-btn:hover { opacity: 0.85; }
 
-        @keyframes slideIn {
-            0% { opacity: 0; transform: translateX(-30px); }
-            100% { opacity: 1; transform: translateX(0); }
+        /* 弹窗 Modal 样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 20px;
         }
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .modal-card {
+            background: #141921;
+            border: 1px solid var(--accent-glow);
+            border-radius: 18px;
+            max-width: 480px;
+            width: 100%;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
+            animation: modalIn 0.3s ease;
         }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes modalIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 15px;
+            font-size: 20px; color: var(--text-sub);
+            cursor: pointer;
         }
+        .close-btn:hover { color: #fff; }
     </style>
 </head>
-<body>
-
-<div class="music-player" id="musicBtn" onclick="toggleMusic()">
+<body><div class="music-player" id="musicBtn" onclick="toggleMusic()">
     <i class="fa-solid fa-compact-disc disc-icon disc-paused" id="discIcon"></i>
     <span id="musicText" style="font-size: 13px;">点击播放 BGM</span>
 </div>
-
 <audio id="bgmAudio" loop preload="auto">
     <source src="https://raw.githubusercontent.com/3068005665qq-create/3068005665qq-create.github.io/main/bgm.mp3" type="audio/mpeg">
 </audio>
@@ -250,7 +243,7 @@
     <div class="profile-card">
         <div class="avatar-box">乔</div>
         <h1>乔柏晨</h1>
-        <div style="color: var(--text-sub); font-size: 13px; margin-top: 5px;">
+        <div style="color: var(--text-sub); font-size: 13px; text-align: center; margin-top: 5px;">
             <i class="fa-solid fa-location-dot"></i> 河南汝州 / 江苏南京
         </div>
         
@@ -269,35 +262,41 @@
 
     <div class="card">
         <div class="card-title">
-            <i class="fa-solid fa-trophy"></i> 喜爱球星 (动态滑动展示)
+            <i class="fa-solid fa-trophy"></i> 喜爱球星 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看简介与动态)</span>
         </div>
         <div class="stars-container">
-            <div class="star-mini-card">
-                < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Michael_Jordan_in_2014.jpg/440px-Michael_Jordan_in_2014.jpg" class="star-img" alt="乔丹">
-                <div class="star-name">迈克尔·乔丹</div>
+            <div class="star-card" onclick="showStarModal('jordan')">
+                <div class="star-avatar"><i class="fa-solid fa-basketball"></i></div>
+                <div style="font-size: 13px; font-weight: bold;">迈克尔·乔丹</div>
             </div>
-            <div class="star-mini-card">
-                < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/LeBron_James_crop_2023.jpg/440px-LeBron_James_crop_2023.jpg" class="star-img" alt="詹姆斯">
-                <div class="star-name">勒布朗·詹姆斯</div>
+            <div class="star-card" onclick="showStarModal('james')">
+                <div class="star-avatar"><i class="fa-solid fa-crown"></i></div>
+                <div style="font-size: 13px; font-weight: bold;">勒布朗·詹姆斯</div>
             </div>
-            <div class="star-mini-card">
-                < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_DWI_%28cropped%29.jpg/440px-Stephen_Curry_DWI_%28cropped%29.jpg" class="star-img" alt="库里">
-                <div class="star-name">斯蒂芬·库里</div>
+            <div class="star-card" onclick="showStarModal('curry')">
+                <div class="star-avatar"><i class="fa-solid fa-fire"></i></div>
+                <div style="font-size: 13px; font-weight: bold;">斯蒂芬·库里</div>
             </div>
-            <div class="star-mini-card">
-                < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Kyrie_Irving_vs_Wizards_%28cropped%29.jpg/440px-Kyrie_Irving_vs_Wizards_%28cropped%29.jpg" class="star-img" alt="欧文">
-                <div class="star-name">凯里·欧文</div>
+            <div class="star-card" onclick="showStarModal('irving')">
+                <div class="star-avatar"><i class="fa-solid fa-bolt"></i></div>
+                <div style="font-size: 13px; font-weight: bold;">凯里·欧文</div>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-title"><i class="fa-solid fa-heart"></i> 兴趣与爱好</div>
+        <div class="card-title"><i class="fa-solid fa-gamepad"></i> 兴趣与爱好</div>
         <div class="tag-group">
             <span class="tag"><i class="fa-solid fa-basketball"></i> 篮球</span>
             <span class="tag"><i class="fa-solid fa-person-swimming"></i> 游泳</span>
             <span class="tag"><i class="fa-solid fa-music"></i> 钢琴</span>
-            <span class="tag"><i class="fa-solid fa-gamepad"></i> GTA5</span>
+            <span class="tag"><i class="fa-solid fa-horse"></i> 马术</span>
+            <span class="tag"><i class="fa-solid fa-person-skiing"></i> 滑雪</span>
+            <span class="tag"><i class="fa-solid fa-person-skating"></i> 溜冰</span>
+            <span class="tag"><i class="fa-solid fa-crosshairs"></i> CS2</span>
+            <span class="tag"><i class="fa-solid fa-cube"></i> 我的世界</span>
+            <span class="tag"><i class="fa-solid fa-car-side"></i> GTA5</span>
+            <span class="tag"><i class="fa-solid fa-seedling"></i> 植物大战僵尸</span>
         </div>
     </div>
 
@@ -305,37 +304,49 @@
         <div class="card-title"><i class="fa-solid fa-headphones"></i> 音乐品味</div>
         <ul class="media-list">
             <li class="media-item">
-                <div><i class="fa-solid fa-music" style="color: var(--accent-blue);"></i> 《红色高跟鞋》</div>
-                <span class="badge top">最爱榜首</span>
+                <div>
+                    <strong>《红色高跟鞋》</strong> - 蔡健雅
+                    <div style="font-size: 12px; color: var(--text-sub);">最爱榜首 · 经典都市氛围感</div>
+                </div>
+                <a href=" " target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
             </li>
             <li class="media-item">
-                <div><i class="fa-solid fa-music" style="color: var(--accent-blue);"></i> 《我怀念的》</div>
-                <span class="badge">常听推荐</span>
+                <div>
+                    <strong>《我怀念的》</strong> - 孙燕姿
+                    <div style="font-size: 12px; color: var(--text-sub);">常听推荐 · 深情叙事声线</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=%E6%88%91%E6%80%80%E5%BF%B5%E7%9A%84" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
             </li>
             <li class="media-item">
-                <div><i class="fa-solid fa-music" style="color: var(--accent-blue);"></i> 《晴天》- 周杰伦</div>
-                <span class="badge">经典歌曲</span>
+                <div>
+                    <strong>《晴天》</strong> - 周杰伦
+                    <div style="font-size: 12px; color: var(--text-sub);">青春记忆 · 经典吉他旋律</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=%E6%99%B4%E5%A4%A9%20%E周杰伦" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
             </li>
             <li class="media-item">
-                <div><i class="fa-solid fa-piano" style="color: var(--accent-blue);"></i> 《The Truth That You Leave》</div>
-                <span class="badge">钢琴曲</span>
+                <div>
+                    <strong>《The Truth That You Leave》</strong> - Pianoboy
+                    <div style="font-size: 12px; color: var(--text-sub);">钢琴曲 · 治愈沉静思考</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=The%20Truth%20That%20You%20Leave" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
             </li>
         </ul>
-    </div>
-
-    <div class="card">
-        <div class="card-title"><i class="fa-solid fa-car"></i> 喜爱车系</div>
+    </div>    <div class="card">
+        <div class="card-title">
+            <i class="fa-solid fa-car"></i> 喜爱车系 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看帅气车型简介)</span>
+        </div>
         <div class="tag-group">
-            <span class="tag">丰田霸道</span>
-            <span class="tag">路虎揽胜 / 创世</span>
-            <span class="tag">特斯拉 Model Y</span>
-            <span class="tag">迈巴赫</span>
+            <span class="tag tag-clickable" onclick="showCarModal('prado')"><i class="fa-solid fa-truck-monster"></i> 丰田霸道</span>
+            <span class="tag tag-clickable" onclick="showCarModal('landrover')"><i class="fa-solid fa-shield-halved"></i> 路虎揽胜 / 创世</span>
+            <span class="tag tag-clickable" onclick="showCarModal('modely')"><i class="fa-solid fa-bolt"></i> 特斯拉 Model Y</span>
+            <span class="tag tag-clickable" onclick="showCarModal('maybach')"><i class="fa-solid fa-gem"></i> 迈巴赫</span>
         </div>
     </div>
 
     <div class="card" style="text-align: center;">
         <div class="card-title" style="justify-content: center;"><i class="fa-solid fa-envelope"></i> 欢迎交流</div>
-        <p style="color: var(--text-sub); font-size: 13px;">思想碰撞、雅思备考或体育喜好交流，随时邮件联系我！</p >
+        <p style="color: var(--text-sub); font-size: 13px;">思想碰撞、雅思备考、电竞或车系喜好交流，随时邮件联系我！</p >
         <a href=" " style="color: var(--accent-glow); font-weight: bold; font-size: 15px; text-decoration: none; display: inline-block; margin-top: 8px;">
             3068005665@qq.com
         </a >
@@ -343,7 +354,17 @@
 
 </div>
 
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+        <i class="fa-solid fa-xmark close-btn" onclick="closeModal()"></i>
+        <h3 id="modalTitle" style="color: var(--accent-glow); font-size: 20px; margin-bottom: 10px;"></h3>
+        <p id="modalDesc" style="font-size: 14px; color: var(--text-main); margin-bottom: 15px; line-height: 1.7;"></p >
+        <div id="modalExtra"></div>
+    </div>
+</div>
+
 <script>
+    // 音乐播放控制器
     function toggleMusic() {
         var audio = document.getElementById('bgmAudio');
         var discIcon = document.getElementById('discIcon');
@@ -358,6 +379,70 @@
             discIcon.classList.add('disc-paused');
             musicText.innerText = "已暂停";
         }
+    }
+
+    // 球星数据
+    const starData = {
+        jordan: {
+            title: "迈克尔·乔丹 (Michael Jordan)",
+            desc: "篮球之神，历史最伟大的篮球运动员。拥有6座NBA总冠军、6次FMVP、5次MVP，以极致的竞争心态和绝杀技巧统治了90年代NBA。",
+            link: "https://china.nba.com/"
+        },
+        james: {
+            title: "勒布朗·詹姆斯 (LeBron James)",
+            desc: "NBA历史得分王，拥有4座NBA总冠军、4次MVP。近20年来统治力最强、最全能的超级巨星之一，依旧在球场上书写传奇。",
+            link: "https://china.nba.com/"
+        },
+        curry: {
+            title: "斯蒂芬·库里 (Stephen Curry)",
+            desc: "历史第一三分射手，改变了现代篮球战术格局。拥有4座NBA总冠军、2次MVP（包括历史唯一全票MVP），用精准的三分和无球跑动开启小球时代。",
+            link: "https://china.nba.com/"
+        },
+        irving: {
+            title: "凯里·欧文 (Kyrie Irving)",
+            desc: "拥有NBA历史顶尖运球过人技巧与极限拉杆终结能力，2016年总决赛抢七大战命中锁定胜局的致命三分，被称为球场上的艺术家。",
+            link: "https://china.nba.com/"
+        }
+    };
+
+    // 车型数据
+    const carData = {
+        prado: {
+            title: "丰田霸道 (Prado / 普拉多)",
+            desc: "硬派越野的传奇代表！强悍的非承载式车身与极高的可靠性，霸气硬朗的外形让它能够轻松征服越野荒野与长途自驾。"
+        },
+        landrover: {
+            title: "路虎揽胜 / 创世 (Range Rover)",
+            desc: "豪华SUV的终极天花板！将高贵典雅的英伦皇家气质与顶尖的全地形越野性能完美融合，气场十足，尽显霸者风范。"
+        },
+        modely: {
+            title: "特斯拉 Model Y (Tesla Model Y)",
+            desc: "现代智能电动SUV的先锋之作！极其简练的科技感造型、极速的加速性能与行业领先的自动驾驶科技，带来纯粹的未来驾驶感受。"
+        },
+        maybach: {
+            title: "迈巴赫 (Mercedes-Maybach)",
+            desc: "顶级商务奢华的代名词！标志性的双色车身、极致奢华的后排头等舱体验与尊贵典雅的气情，是追求极致品质与立体的顶级座驾。"
+        }
+    };
+
+    function showStarModal(key) {
+        const item = starData[key];
+        document.getElementById('modalTitle').innerText = item.title;
+        document.getElementById('modalDesc').innerText = item.desc;
+        document.getElementById('modalExtra').innerHTML = `<a href="${item.link}" target="_blank" style="color: var(--accent-glow); font-size: 13px; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 NBA 最新动态消息</a >`;
+        document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    function showCarModal(key) {
+        const item = carData[key];
+        document.getElementById('modalTitle').innerText = item.title;
+        document.getElementById('modalDesc').innerText = item.desc;
+        document.getElementById('modalExtra').innerHTML = `<span style="font-size: 12px; color: var(--accent-blue);"><i class="fa-solid fa-gauge-high"></i> 帅气外观 & 豪华动力体验</span>`;
+        document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
     }
 </script>
 

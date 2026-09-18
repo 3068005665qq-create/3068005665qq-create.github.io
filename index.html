@@ -75,18 +75,18 @@
         }
 
         .avatar-box {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-glow));
             margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 34px;
-            font-weight: bold;
-            color: #0d0f12;
+            overflow: hidden;
+            border: 2px solid var(--accent-glow);
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         h1 {
@@ -116,7 +116,7 @@
             gap: 8px;
         }
 
-        /* 标签与按钮 */
+        /* 标签 */
         .tag-group { display: flex; flex-wrap: wrap; gap: 10px; }
         .tag {
             background: rgba(255, 255, 255, 0.05);
@@ -126,9 +126,7 @@
             font-size: 13px;
             transition: all 0.3s;
         }
-        .tag-clickable {
-            cursor: pointer;
-        }
+        .tag-clickable { cursor: pointer; }
         .tag-clickable:hover {
             border-color: var(--accent-glow);
             background: rgba(0, 242, 254, 0.1);
@@ -147,7 +145,7 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 15px 10px;
+            padding: 12px 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -158,16 +156,17 @@
             box-shadow: 0 5px 15px rgba(0, 242, 254, 0.2);
         }
         .star-avatar {
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px solid var(--accent-glow);
             margin: 0 auto 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-glow);
+            overflow: hidden;
+            border: 1px solid var(--accent-glow);
+        }
+        .star-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* 音乐列表 */
@@ -176,7 +175,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 14px;
         }
@@ -197,7 +196,7 @@
         }
         .listen-btn:hover { opacity: 0.85; }
 
-        /* 弹窗 Modal 样式 */
+        /* 弹窗 Modal */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -230,18 +229,22 @@
         .close-btn:hover { color: #fff; }
     </style>
 </head>
-<body><div class="music-player" id="musicBtn" onclick="toggleMusic()">
+<body><!-- 背景音乐（修正为直接可播放音频） -->
+<div class="music-player" id="musicBtn" onclick="toggleMusic()">
     <i class="fa-solid fa-compact-disc disc-icon disc-paused" id="discIcon"></i>
     <span id="musicText" style="font-size: 13px;">点击播放 BGM</span>
 </div>
 <audio id="bgmAudio" loop preload="auto">
-    <source src="https://raw.githubusercontent.com/3068005665qq-create/3068005665qq-create.github.io/main/bgm.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
+    <!-- 个人基本卡片（使用本人真实照片） -->
     <div class="profile-card">
-        <div class="avatar-box">乔</div>
+        <div class="avatar-box">
+            < img src="https://raw.githubusercontent.com/3068005665qq-create/3068005665qq-create.github.io/main/1000228513.jpg" alt="乔柏晨">
+        </div>
         <h1>乔柏晨</h1>
         <div style="color: var(--text-sub); font-size: 13px; text-align: center; margin-top: 5px;">
             <i class="fa-solid fa-location-dot"></i> 河南汝州 / 江苏南京
@@ -260,30 +263,40 @@
         </div>
     </div>
 
+    <!-- 喜爱球星（包含球星真人真实头像） -->
     <div class="card">
         <div class="card-title">
             <i class="fa-solid fa-trophy"></i> 喜爱球星 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看简介与动态)</span>
         </div>
         <div class="stars-container">
             <div class="star-card" onclick="showStarModal('jordan')">
-                <div class="star-avatar"><i class="fa-solid fa-basketball"></i></div>
+                <div class="star-avatar">
+                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Michael_Jordan_Chicago_Bulls_1997.jpg/440px-Michael_Jordan_Chicago_Bulls_1997.jpg" alt="乔丹">
+                </div>
                 <div style="font-size: 13px; font-weight: bold;">迈克尔·乔丹</div>
             </div>
             <div class="star-card" onclick="showStarModal('james')">
-                <div class="star-avatar"><i class="fa-solid fa-crown"></i></div>
+                <div class="star-avatar">
+                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LeBron_James_lip_read_%28cropped%29.jpg/440px-LeBron_James_lip_read_%28cropped%29.jpg" alt="詹姆斯">
+                </div>
                 <div style="font-size: 13px; font-weight: bold;">勒布朗·詹姆斯</div>
             </div>
             <div class="star-card" onclick="showStarModal('curry')">
-                <div class="star-avatar"><i class="fa-solid fa-fire"></i></div>
+                <div class="star-avatar">
+                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg/440px-Stephen_Curry_dribbling_2016_%28cropped%29.jpg" alt="库里">
+                </div>
                 <div style="font-size: 13px; font-weight: bold;">斯蒂芬·库里</div>
             </div>
             <div class="star-card" onclick="showStarModal('irving')">
-                <div class="star-avatar"><i class="fa-solid fa-bolt"></i></div>
+                <div class="star-avatar">
+                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Kyrie_Irving_vs_Wizards_2018_%28cropped%29.jpg/440px-Kyrie_Irving_vs_Wizards_2018_%28cropped%29.jpg" alt="欧文">
+                </div>
                 <div style="font-size: 13px; font-weight: bold;">凯里·欧文</div>
             </div>
         </div>
     </div>
 
+    <!-- 兴趣与爱好 -->
     <div class="card">
         <div class="card-title"><i class="fa-solid fa-gamepad"></i> 兴趣与爱好</div>
         <div class="tag-group">
@@ -300,8 +313,9 @@
         </div>
     </div>
 
+    <!-- 音乐品味（去重整合截图歌单，右侧带听歌按钮） -->
     <div class="card">
-        <div class="card-title"><i class="fa-solid fa-headphones"></i> 音乐品味</div>
+        <div class="card-title"><i class="fa-solid fa-headphones"></i> 音乐品味 / 收藏歌单</div>
         <ul class="media-list">
             <li class="media-item">
                 <div>
@@ -312,27 +326,63 @@
             </li>
             <li class="media-item">
                 <div>
-                    <strong>《我怀念的》</strong> - 孙燕姿
-                    <div style="font-size: 12px; color: var(--text-sub);">常听推荐 · 深情叙事声线</div>
-                </div>
-                <a href="https://music.163.com/#/search/m/?s=%E6%88%91%E6%80%80%E5%BF%B5%E7%9A%84" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
-            </li>
-            <li class="media-item">
-                <div>
-                    <strong>《晴天》</strong> - 周杰伦
-                    <div style="font-size: 12px; color: var(--text-sub);">青春记忆 · 经典吉他旋律</div>
-                </div>
-                <a href="https://music.163.com/#/search/m/?s=%E6%99%B4%E5%A4%A9%20%E周杰伦" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
-            </li>
-            <li class="media-item">
-                <div>
                     <strong>《The Truth That You Leave》</strong> - Pianoboy
                     <div style="font-size: 12px; color: var(--text-sub);">钢琴曲 · 治愈沉静思考</div>
                 </div>
                 <a href="https://music.163.com/#/search/m/?s=The%20Truth%20That%20You%20Leave" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
             </li>
+            <li class="media-item">
+                <div>
+                    <strong>《Sahara》</strong> - DJ Abreu
+                    <div style="font-size: 12px; color: var(--text-sub);">电音燃曲 · 极致节奏卡点</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=Sahara%20DJ%20Abreu" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《3 Strikes》</strong> - 陈浩男
+                    <div style="font-size: 12px; color: var(--text-sub);">伴奏律动 · 潮流氛围节奏</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=3%20Strikes%20%E9%99%88%E6%B5%A9%E7%94%B7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《春娇与志明》</strong> - 街道办GDC / 欧阳耀莹
+                    <div style="font-size: 12px; color: var(--text-sub);">粤语说唱 · 经典情感共鸣</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=%E6%98%A5%E5%A6%84%E4%B8%8E%E5%BF%97%E6%98%8E" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《我记得》</strong> - 赵雷
+                    <div style="font-size: 12px; color: var(--text-sub);">民谣精品 · 温暖治愈诗意</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=%E6%88%91%E8%AE%B0%E5%BE%97%20%E8%B5%B5%E9%9B%B7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《Moves Like Jagger》</strong> - Maroon 5
+                    <div style="font-size: 12px; color: var(--text-sub);">欧美流行 · 极具感染力</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=Moves%20Like%20Jagger" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《One Last Time》</strong> - Ariana Grande
+                    <div style="font-size: 12px; color: var(--text-sub);">流行高音 · 经典旋律</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=One%20Last%20Time" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《Sugar》</strong> - Maroon 5
+                    <div style="font-size: 12px; color: var(--text-sub);">欢快浪漫 · 甜蜜旋律</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=Sugar%20Maroon%205" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+            </li>
         </ul>
-    </div>    <div class="card">
+    </div>    <!-- 喜爱车系 -->
+    <div class="card">
         <div class="card-title">
             <i class="fa-solid fa-car"></i> 喜爱车系 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看帅气车型简介)</span>
         </div>
@@ -344,6 +394,7 @@
         </div>
     </div>
 
+    <!-- 联系方式 -->
     <div class="card" style="text-align: center;">
         <div class="card-title" style="justify-content: center;"><i class="fa-solid fa-envelope"></i> 欢迎交流</div>
         <p style="color: var(--text-sub); font-size: 13px;">思想碰撞、雅思备考、电竞或车系喜好交流，随时邮件联系我！</p >
@@ -354,6 +405,7 @@
 
 </div>
 
+<!-- 详情弹窗 Modal -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="modal-card">
         <i class="fa-solid fa-xmark close-btn" onclick="closeModal()"></i>
@@ -371,9 +423,12 @@
         var musicText = document.getElementById('musicText');
 
         if (audio.paused) {
-            audio.play();
-            discIcon.classList.remove('disc-paused');
-            musicText.innerText = "播放中...";
+            audio.play().then(() => {
+                discIcon.classList.remove('disc-paused');
+                musicText.innerText = "播放中...";
+            }).catch(err => {
+                alert("播放失败，请刷新页面后重试");
+            });
         } else {
             audio.pause();
             discIcon.classList.add('disc-paused');
@@ -421,7 +476,7 @@
         },
         maybach: {
             title: "迈巴赫 (Mercedes-Maybach)",
-            desc: "顶级商务奢华的代名词！标志性的双色车身、极致奢华的后排头等舱体验与尊贵典雅的气情，是追求极致品质与立体的顶级座驾。"
+            desc: "顶级商务奢华的代名词！标志性的双色车身、极致奢华的后排头等舱体验与尊贵典雅的气场，是追求极致品质与立体的顶级座驾。"
         }
     };
 

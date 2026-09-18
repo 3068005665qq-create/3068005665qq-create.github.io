@@ -229,7 +229,8 @@
         .close-btn:hover { color: #fff; }
     </style>
 </head>
-<body><!-- 背景音乐（修正为直接可播放音频） -->
+<body>
+
 <div class="music-player" id="musicBtn" onclick="toggleMusic()">
     <i class="fa-solid fa-compact-disc disc-icon disc-paused" id="discIcon"></i>
     <span id="musicText" style="font-size: 13px;">点击播放 BGM</span>
@@ -240,10 +241,9 @@
 
 <div class="container">
 
-    <!-- 个人基本卡片（使用本人真实照片） -->
     <div class="profile-card">
         <div class="avatar-box">
-            < img src="https://raw.githubusercontent.com/3068005665qq-create/3068005665qq-create.github.io/main/1000228513.jpg" alt="乔柏晨">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&auto=format&fit=crop" alt="乔柏晨" id="myAvatar">
         </div>
         <h1>乔柏晨</h1>
         <div style="color: var(--text-sub); font-size: 13px; text-align: center; margin-top: 5px;">
@@ -263,7 +263,6 @@
         </div>
     </div>
 
-    <!-- 喜爱球星（包含球星真人真实头像） -->
     <div class="card">
         <div class="card-title">
             <i class="fa-solid fa-trophy"></i> 喜爱球星 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看简介与动态)</span>
@@ -271,32 +270,31 @@
         <div class="stars-container">
             <div class="star-card" onclick="showStarModal('jordan')">
                 <div class="star-avatar">
-                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Michael_Jordan_Chicago_Bulls_1997.jpg/440px-Michael_Jordan_Chicago_Bulls_1997.jpg" alt="乔丹">
+                    <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?w=200&auto=format&fit=crop" alt="迈克尔·乔丹">
                 </div>
                 <div style="font-size: 13px; font-weight: bold;">迈克尔·乔丹</div>
             </div>
             <div class="star-card" onclick="showStarModal('james')">
                 <div class="star-avatar">
-                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LeBron_James_lip_read_%28cropped%29.jpg/440px-LeBron_James_lip_read_%28cropped%29.jpg" alt="詹姆斯">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&auto=format&fit=crop" alt="勒布朗·詹姆斯">
                 </div>
                 <div style="font-size: 13px; font-weight: bold;">勒布朗·詹姆斯</div>
             </div>
             <div class="star-card" onclick="showStarModal('curry')">
                 <div class="star-avatar">
-                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg/440px-Stephen_Curry_dribbling_2016_%28cropped%29.jpg" alt="库里">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=200&auto=format&fit=crop" alt="斯蒂芬·库里">
                 </div>
                 <div style="font-size: 13px; font-weight: bold;">斯蒂芬·库里</div>
             </div>
             <div class="star-card" onclick="showStarModal('irving')">
                 <div class="star-avatar">
-                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Kyrie_Irving_vs_Wizards_2018_%28cropped%29.jpg/440px-Kyrie_Irving_vs_Wizards_2018_%28cropped%29.jpg" alt="欧文">
+                    <img src="https://images.unsplash.com/photo-1518063319789-7217e6706b04?w=200&auto=format&fit=crop" alt="凯里·欧文">
                 </div>
                 <div style="font-size: 13px; font-weight: bold;">凯里·欧文</div>
             </div>
         </div>
     </div>
 
-    <!-- 兴趣与爱好 -->
     <div class="card">
         <div class="card-title"><i class="fa-solid fa-gamepad"></i> 兴趣与爱好</div>
         <div class="tag-group">
@@ -313,7 +311,6 @@
         </div>
     </div>
 
-    <!-- 音乐品味（去重整合截图歌单，右侧带听歌按钮） -->
     <div class="card">
         <div class="card-title"><i class="fa-solid fa-headphones"></i> 音乐品味 / 收藏歌单</div>
         <ul class="media-list">
@@ -322,69 +319,84 @@
                     <strong>《红色高跟鞋》</strong> - 蔡健雅
                     <div style="font-size: 12px; color: var(--text-sub);">最爱榜首 · 经典都市氛围感</div>
                 </div>
-                <a href=" " target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=%E7%BA%A2%E8%89%B2%E9%AB%98%E8%B6%B1%E9%9E%8B" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《The Truth That You Leave》</strong> - Pianoboy
                     <div style="font-size: 12px; color: var(--text-sub);">钢琴曲 · 治愈沉静思考</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=The%20Truth%20That%20You%20Leave" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=The%20Truth%20That%20You%20Leave" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《Sahara》</strong> - DJ Abreu
                     <div style="font-size: 12px; color: var(--text-sub);">电音燃曲 · 极致节奏卡点</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=Sahara%20DJ%20Abreu" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=Sahara%20DJ%20Abreu" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《3 Strikes》</strong> - 陈浩男
                     <div style="font-size: 12px; color: var(--text-sub);">伴奏律动 · 潮流氛围节奏</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=3%20Strikes%20%E9%99%88%E6%B5%A9%E7%94%B7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=3%20Strikes%20%E9%99%88%E6%B5%A9%E7%94%B7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《春娇与志明》</strong> - 街道办GDC / 欧阳耀莹
                     <div style="font-size: 12px; color: var(--text-sub);">粤语说唱 · 经典情感共鸣</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=%E6%98%A5%E5%A6%84%E4%B8%8E%E5%BF%97%E6%98%8E" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=%E6%98%A5%E5%A6%84%E4%B8%8E%E5%BF%97%E6%98%8E" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《浆果 (英文版)》</strong> - TINY7
+                    <div style="font-size: 12px; color: var(--text-sub);">抓耳旋律 · 惬意节奏</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=%E6%B5%86%E6%9E%9C%20TINY7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
+            </li>
+            <li class="media-item">
+                <div>
+                    <strong>《天亮以前说再见》</strong> - 四嘉丸子
+                    <div style="font-size: 12px; color: var(--text-sub);">流行热歌 · 动人旋律</div>
+                </div>
+                <a href="https://music.163.com/#/search/m/?s=%E5%A4%A9%E4%BA%AE%E4%BB%A5%E5%89%8D%E8%AF%B4%E5%86%8D%E8%A7%81" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《我记得》</strong> - 赵雷
                     <div style="font-size: 12px; color: var(--text-sub);">民谣精品 · 温暖治愈诗意</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=%E6%88%91%E8%AE%B0%E5%BE%97%20%E8%B5%B5%E9%9B%B7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=%E6%88%91%E8%AE%B0%E5%BE%97%20%E8%B5%B5%E9%9B%B7" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《Moves Like Jagger》</strong> - Maroon 5
                     <div style="font-size: 12px; color: var(--text-sub);">欧美流行 · 极具感染力</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=Moves%20Like%20Jagger" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=Moves%20Like%20Jagger" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《One Last Time》</strong> - Ariana Grande
                     <div style="font-size: 12px; color: var(--text-sub);">流行高音 · 经典旋律</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=One%20Last%20Time" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=One%20Last%20Time" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
             <li class="media-item">
                 <div>
                     <strong>《Sugar》</strong> - Maroon 5
                     <div style="font-size: 12px; color: var(--text-sub);">欢快浪漫 · 甜蜜旋律</div>
                 </div>
-                <a href="https://music.163.com/#/search/m/?s=Sugar%20Maroon%205" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a >
+                <a href="https://music.163.com/#/search/m/?s=Sugar%20Maroon%205" target="_blank" class="listen-btn"><i class="fa-solid fa-play"></i> 试听</a>
             </li>
         </ul>
-    </div>    <!-- 喜爱车系 -->
+    </div>
+
     <div class="card">
         <div class="card-title">
-            <i class="fa-solid fa-car"></i> 喜爱车系 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看帅气车型简介)</span>
+            <i class="fa-solid fa-car"></i> 喜爱车系 <span style="font-size: 11px; color: var(--text-sub); font-weight: normal;">(点击查看车型简介)</span>
         </div>
         <div class="tag-group">
             <span class="tag tag-clickable" onclick="showCarModal('prado')"><i class="fa-solid fa-truck-monster"></i> 丰田霸道</span>
@@ -394,23 +406,21 @@
         </div>
     </div>
 
-    <!-- 联系方式 -->
     <div class="card" style="text-align: center;">
         <div class="card-title" style="justify-content: center;"><i class="fa-solid fa-envelope"></i> 欢迎交流</div>
-        <p style="color: var(--text-sub); font-size: 13px;">思想碰撞、雅思备考、电竞或车系喜好交流，随时邮件联系我！</p >
-        <a href=" " style="color: var(--accent-glow); font-weight: bold; font-size: 15px; text-decoration: none; display: inline-block; margin-top: 8px;">
+        <p style="color: var(--text-sub); font-size: 13px;">思想碰撞、雅思备考、电竞或车系喜好交流，随时邮件联系我！</p>
+        <a href="mailto:3068005665@qq.com" style="color: var(--accent-glow); font-weight: bold; font-size: 15px; text-decoration: none; display: inline-block; margin-top: 8px;">
             3068005665@qq.com
-        </a >
+        </a>
     </div>
 
 </div>
 
-<!-- 详情弹窗 Modal -->
 <div class="modal-overlay" id="modalOverlay">
     <div class="modal-card">
         <i class="fa-solid fa-xmark close-btn" onclick="closeModal()"></i>
         <h3 id="modalTitle" style="color: var(--accent-glow); font-size: 20px; margin-bottom: 10px;"></h3>
-        <p id="modalDesc" style="font-size: 14px; color: var(--text-main); margin-bottom: 15px; line-height: 1.7;"></p >
+        <p id="modalDesc" style="font-size: 14px; color: var(--text-main); margin-bottom: 15px; line-height: 1.7;"></p>
         <div id="modalExtra"></div>
     </div>
 </div>
@@ -427,7 +437,7 @@
                 discIcon.classList.remove('disc-paused');
                 musicText.innerText = "播放中...";
             }).catch(err => {
-                alert("播放失败，请刷新页面后重试");
+                alert("播放失败，请刷新页面重试");
             });
         } else {
             audio.pause();
@@ -440,51 +450,39 @@
     const starData = {
         jordan: {
             title: "迈克尔·乔丹 (Michael Jordan)",
-            desc: "篮球之神，历史最伟大的篮球运动员。拥有6座NBA总冠军、6次FMVP、5次MVP，以极致的竞争心态和绝杀技巧统治了90年代NBA。",
+            desc: "篮球之神，历史最伟大的篮球运动员。拥有6座NBA总冠军、6次FMVP、5次MVP，以极致的竞争心态统治了90年代NBA。",
             link: "https://china.nba.com/"
         },
         james: {
             title: "勒布朗·詹姆斯 (LeBron James)",
-            desc: "NBA历史得分王，拥有4座NBA总冠军、4次MVP。近20年来统治力最强、最全能的超级巨星之一，依旧在球场上书写传奇。",
+            desc: "NBA历史得分王，拥有4座NBA总冠军、4次MVP。近20年来统治力最强、最全能的超级巨星之一。",
             link: "https://china.nba.com/"
         },
         curry: {
             title: "斯蒂芬·库里 (Stephen Curry)",
-            desc: "历史第一三分射手，改变了现代篮球战术格局。拥有4座NBA总冠军、2次MVP（包括历史唯一全票MVP），用精准的三分和无球跑动开启小球时代。",
+            desc: "历史第一三分射手，改变了现代篮球战术格局。拥有4座NBA总冠军、2次MVP，用精准的三分开启小球时代。",
             link: "https://china.nba.com/"
         },
         irving: {
             title: "凯里·欧文 (Kyrie Irving)",
-            desc: "拥有NBA历史顶尖运球过人技巧与极限拉杆终结能力，2016年总决赛抢七大战命中锁定胜局的致命三分，被称为球场上的艺术家。",
+            desc: "拥有NBA历史顶尖运球过人技巧与极限拉杆终结能力，被称为球场上的艺术家。",
             link: "https://china.nba.com/"
         }
     };
 
     // 车型数据
     const carData = {
-        prado: {
-            title: "丰田霸道 (Prado / 普拉多)",
-            desc: "硬派越野的传奇代表！强悍的非承载式车身与极高的可靠性，霸气硬朗的外形让它能够轻松征服越野荒野与长途自驾。"
-        },
-        landrover: {
-            title: "路虎揽胜 / 创世 (Range Rover)",
-            desc: "豪华SUV的终极天花板！将高贵典雅的英伦皇家气质与顶尖的全地形越野性能完美融合，气场十足，尽显霸者风范。"
-        },
-        modely: {
-            title: "特斯拉 Model Y (Tesla Model Y)",
-            desc: "现代智能电动SUV的先锋之作！极其简练的科技感造型、极速的加速性能与行业领先的自动驾驶科技，带来纯粹的未来驾驶感受。"
-        },
-        maybach: {
-            title: "迈巴赫 (Mercedes-Maybach)",
-            desc: "顶级商务奢华的代名词！标志性的双色车身、极致奢华的后排头等舱体验与尊贵典雅的气场，是追求极致品质与立体的顶级座驾。"
-        }
+        prado: { title: "丰田霸道 (Prado)", desc: "硬派越野的传奇代表！强悍的非承载式车身与极高的可靠性，能够轻松征服越野荒野。" },
+        landrover: { title: "路虎揽胜 / 创世", desc: "豪华SUV的天花板！将高贵典雅的英伦皇家气质与顶尖的全地形越野性能完美融合。" },
+        modely: { title: "特斯拉 Model Y", desc: "现代智能电动SUV先锋！极简科技造型与极致加速，带来未来驾驶感受。" },
+        maybach: { title: "迈巴赫 (Maybach)", desc: "顶级商务奢华代名词！尊贵典雅的气场与后排头等舱体验，是追求极致品质的座驾。" }
     };
 
     function showStarModal(key) {
         const item = starData[key];
         document.getElementById('modalTitle').innerText = item.title;
         document.getElementById('modalDesc').innerText = item.desc;
-        document.getElementById('modalExtra').innerHTML = `<a href="${item.link}" target="_blank" style="color: var(--accent-glow); font-size: 13px; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 NBA 最新动态消息</a >`;
+        document.getElementById('modalExtra').innerHTML = `<a href="${item.link}" target="_blank" style="color: var(--accent-glow); font-size: 13px; text-decoration: none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> 查看 NBA 最新动态消息</a>`;
         document.getElementById('modalOverlay').style.display = 'flex';
     }
 
